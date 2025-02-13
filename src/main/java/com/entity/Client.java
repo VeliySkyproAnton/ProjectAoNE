@@ -5,7 +5,9 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.validation.constraints.Size;
+import lombok.Data;
 
+@Data
 @Entity
 public class Client {
     @Id
@@ -17,7 +19,5 @@ public class Client {
     @Size(min = 6, max = 30)
     private String password;
 
-    public String getPassword() {
-        return password;
-    }
+
 }

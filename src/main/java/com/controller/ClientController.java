@@ -19,9 +19,6 @@ public class ClientController {
 
     @PostMapping
     public ResponseEntity<?> registerClient(@Valid @RequestBody Client client) {
-        if (client.getPassword().length() < 6 || client.getPassword().length() > 30) {
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Пароль должен содержать от 6 до 30 символов.");
-        }
         return ResponseEntity.ok(clientService.registerClient(client));
     }
 
