@@ -11,18 +11,18 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping
+@RequestMapping("/clients")
 public class ClientController {
 
     @Autowired
     private ClientService clientService;
 
-    @PostMapping
+    @PostMapping("/register")
     public ResponseEntity<?> registerClient(@Valid @RequestBody Client client) {
         return ResponseEntity.ok(clientService.registerClient(client));
     }
 
-@GetMapping
+@GetMapping("/{id}")
     public ResponseEntity<Client> findClientById(@PathVariable Long id) {
         Client client = clientService.findClientById(id);
     if (client != null) {
